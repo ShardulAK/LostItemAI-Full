@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main/found.css' %}">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="upperImage"></div>
+            <div class="lowerText">
+                <h1>What did you lost!</h1>
+            </div>
+        </div>
+        {% for img in images %}
+        <div class="right">
+            Predicted Name:- 
+            {{ img.name }}
+            <br>
+            Uploaded by:- 
+            {{ img.user.username }}
+            <br>
+            Phone:- 
+            {% for p in img.user.profile.all %}
+            {{ p.phone }}
+            {% endfor %}
+            <br>
+            class:-
+            {{ img.im_class }}
+            <br>
+            confidence:-
+            {{ img.confidence}}
+            <br>
+            x1:-
+            {{ img.box_x1 }}
+            <br>
+            y1:-
+            {{ img.box_y1 }}
+            <br>
+            x2:-
+            {{ img.box_x2 }}
+            <br>
+            y2:-
+            {{ img.box_y2 }}
+            <br>
+          
+            
+            <img  src=" {{ img.image.url}}" alt="">
+           
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

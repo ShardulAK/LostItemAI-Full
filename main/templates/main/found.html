@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main/lost.css' %}">
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="foundIt">
+                <div class="image">
+                    <img src="{% static 'main/camera.jpg' %}" alt="Camera">
+                </div>
+                <div class="text">
+                    <h1>You Found It</h1>
+                    <h2>Just Click It</h2>
+                    <br>
+                    <label for="image">Take a picture of what you found:</label>
+                    <br>
+                    <input type="file"  accept="image/*"  name="image" id="image" placeholder="Image" />
+                    <div class="upload">
+                        <input class="upload" type="submit" name="upload" value="upload" id='upload'>
+                        
+                    </div>
+                     
+                </div>
+                
+            </div>
+    
+    
+            
+        </div>
+
+    </form>
+    
+</body>
+</html>
